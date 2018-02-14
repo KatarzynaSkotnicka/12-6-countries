@@ -7,7 +7,7 @@ $('#search').click(searchCountries);
 
 function searchCountries() {
     var countryName = $('#country-name').val();
-if(!countryName.length) countryName = '.....';
+if(!countryName.length) countryName = 'no data';
 $.ajax({
         url: url + countryName,
         method: 'GET',
@@ -16,10 +16,9 @@ $.ajax({
 }
 
 function showCountriesList(resp) {
-    countriesList.empty();
+	countriesList.empty();
     resp.forEach(function(item){
     $('<li>').text(item.name).appendTo(countriesList);
     });
 }
-
 
